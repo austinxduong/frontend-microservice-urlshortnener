@@ -2,12 +2,12 @@ import './App.css';
 import { useEffect, useState } from 'react';
 
 function App() {
-const [data, setData] = useState([]);
+const [api, setAPI] = useState([]);
 
 const fetchData = () => {
   return fetch("https://backend-microservice-urlshortener.onrender.com/api/getALL")
     .then((response) => response.json())
-    .then((data) => setData(data));
+    .then((data) => setAPI(data));
 }
 
 useEffect(() => {
@@ -22,14 +22,14 @@ useEffect(() => {
         <h2> Microservice URL shortener</h2>
       </header>
       <body>
-      <button onclick="fetchData()">Fetch Data</button>
-        <ul>
-          {data.map((dataObj, index) => (
-            <li key={dataObj.id}>{dataObj.url}{dataObj.short_url}</li>
-          ))}
-          
-        </ul>
-    
+      <button onlick="fetchData()">Fetch Data</button>
+      <div class ="api-container">
+        <ul class="api-ul">
+            {api.map((apiData) => (
+              <li key={apiData._id} class="api-urls">{apiData.url} [short URL]: {apiData.short_url}</li>
+            ))}
+          </ul>
+      </div>
       </body>
     </div>
   );

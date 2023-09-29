@@ -22,6 +22,34 @@ body{
   background-color: rgb(255, 255, 255) ;
 }
 
+/* .api-container {
+
+} */
+
+.api-ul {
+  border: 1px solid;
+  border-color: rgb(12, 179, 123);
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 70rem;
+  height: 70rem;
+  margin: 0 auto;
+  overflow-y: scroll;
+  max-height: 570px;
+}
+
+.api-urls {
+  font-family: "Arial";
+  border: solid 1px;
+  border-color: green;
+  border-radius: 3px;
+  padding: 7px;
+  background-color: rgba(127, 255, 212, 0.223);
+
+}
+
 button {
   margin: 7px;
 }
