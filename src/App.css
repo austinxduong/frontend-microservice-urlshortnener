@@ -24,8 +24,8 @@ body{
   margin: 0;
 }
 
-.api-container {
-}
+/* .api-container {
+} */
 
 .api-ul {
   border: 1px solid;
@@ -40,10 +40,10 @@ body{
   overflow-y: scroll;
   overflow-x: hidden;
   max-height: 570px;
-
 }
 
 .api-urls {
+  
   font-family: "Arial";
   border: solid 1px;
   border-color: green;
@@ -51,6 +51,8 @@ body{
   padding: 7px;
   background-color: rgba(127, 255, 212, 0.223);
   color: rgb(0, 0, 165);
+  overflow-wrap: break-word;
+  
 }
 
 .api-urls:hover {
