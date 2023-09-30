@@ -28,13 +28,14 @@ useEffect(() => {
       <body>
       <button onClick={fetchData}>Refresh Data</button>
 
-        
+        <div class="api-container">
         <ul class="api-ul">
-        {loading && <p>Loading from database ...</p>}
+        {loading && <p class="loading">Loading from database ...</p>}
             {api.map((apiData) => (
               <li key={apiData._id} class="api-urls">{apiData.url} [short URL]: {apiData.short_url}</li>
             ))}
           </ul>
+        </div>
    
       </body>
     </div>

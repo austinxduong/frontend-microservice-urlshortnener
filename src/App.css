@@ -19,12 +19,13 @@
 }
 
 body{
-  background-color: rgb(255, 255, 255) ;
+  background-color: rgb(255, 255, 255);
+  padding: 0;
+  margin: 0;
 }
 
-/* .api-container {
-
-} */
+.api-container {
+}
 
 .api-ul {
   border: 1px solid;
@@ -37,6 +38,7 @@ body{
   height: 70%;
   margin: 0 auto;
   overflow-y: scroll;
+  overflow-x: hidden;
   max-height: 570px;
 
 }
@@ -56,6 +58,8 @@ body{
 }
 
 button {
+  border: solid 1px;
+  border-color: rgb(0, 0, 0);
   font-family: "Arial";
   margin: 10px;
   background-color: white;
@@ -67,4 +71,12 @@ button {
 button:hover {
   background-color: rgba(144, 208, 238, 0.092);
   border-color: blue;
+}
+
+.loading{
+  font-family: "Arial";
+  background-color: rgba(253, 253, 55, 0.364);
+  width: 300px;
+  margin: 0 auto;
+  padding: 7px;
 }
