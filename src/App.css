@@ -51,5 +51,15 @@ body{
 }
 
 button {
-  margin: 7px;
+  font-family: "Arial";
+  margin: 10px;
+  background-color: white;
+  color: black;
+  border-radius: 3px;
+  padding: 7px;
+}
+
+button:hover {
+  background-color: rgba(144, 208, 238, 0.092);
+  border-color: blue;
 }
