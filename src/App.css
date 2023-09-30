@@ -48,6 +48,11 @@ body{
   border-radius: 3px;
   padding: 7px;
   background-color: rgba(127, 255, 212, 0.223);
+  color: rgb(0, 0, 165);
+}
+
+.api-urls:hover {
+  color: rgb(0, 209, 199);
 }
 
 button {
