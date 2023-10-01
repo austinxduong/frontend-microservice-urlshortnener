@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 function App() {
 const [api, setAPI] = useState([]);
 const [loading, setLoading] = useState(false);
+const [position, setPosition] = useState({ x: 0, y: 0 })
 
 function fetchData() {
   setLoading(true)
@@ -15,12 +16,33 @@ function fetchData() {
 
 useEffect(() => {
   fetchData();
-  console.log(fetchData())
+
+  function handleMove(e) {
+    setPosition({ x: e.clientX, y: e.clientY });
+  }
+  window.addEventListener('pointermove', handleMove);
+
+  return () => {
+    window.removeEventListener('pointermove', handleMove);
+  }
 }, [])
 
 
   return (
     <div className="App">
+
+    <div style={{
+          position: 'absolute',
+          backgroundColor: 'orange',
+          borderRadius: '50%',
+          opacity: 0.3,
+          transform: `translate(${position.x}px, ${position.y}px)`,
+          pointerEvents: 'none',
+          left: -20,
+          top: -20,
+          width: 40,
+          height: 40,
+        }} />
 
       <header className="App-header">
         <h2> Microservice URL shortener</h2>
