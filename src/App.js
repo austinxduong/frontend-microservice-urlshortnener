@@ -1,18 +1,30 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 
+
 function App() {
 const [api, setAPI] = useState([]);
 const [loading, setLoading] = useState(false);
 const [position, setPosition] = useState({ x: 0, y: 0 })
 
-function fetchData() {
-  setLoading(true)
-  return fetch("https://backend-microservice-urlshortener.onrender.com/api/getALL")
+
+// async function fetchData() {
+//   setLoading(true)
+//   const response = await fetch("https://backend-microservice-urlshortener.onrender.com/api/getALL")
+//   const jsonData = response.json()
+//   const dataOutput = setAPI(jsonData)
+//   return dataOutput
+// }
+
+async function fetchData() {
+    setLoading(true)
+    return await fetch("https://backend-microservice-urlshortener.onrender.com/api/getALL")
     .then((response) => response.json())
     .then((data) => setAPI(data))
-    .then((loading) => setLoading(false));
+    .then((loading) => setLoading(false))
+    .catch((error) => alert("there was an error fetching data from the server", console.error("there was an error fetching data", error)))
 }
+    
 
 useEffect(() => {
   fetchData();
@@ -53,6 +65,7 @@ useEffect(() => {
         <div class="api-container">
         <ul class="api-ul">
         {loading && <p class="loading">Loading from database ...</p>}
+      
             {api.map((apiData) => (
               <li key={apiData._id} class="api-urls">{apiData.url} [short URL]: {apiData.short_url}</li>
             ))}
