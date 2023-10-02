@@ -8,22 +8,27 @@ const [loading, setLoading] = useState(false);
 const [position, setPosition] = useState({ x: 0, y: 0 })
 
 
-// async function fetchData() {
-//   setLoading(true)
-//   const response = await fetch("https://backend-microservice-urlshortener.onrender.com/api/getALL")
-//   const jsonData = response.json()
-//   const dataOutput = setAPI(jsonData)
-//   return dataOutput
-// }
-
 async function fetchData() {
+  try {
     setLoading(true)
-    return await fetch("https://backend-microservice-urlshortener.onrender.com/api/getALL")
-    .then((response) => response.json())
-    .then((data) => setAPI(data))
-    .then((loading) => setLoading(false))
-    .catch((error) => alert("there was an error fetching data from the server", console.error("there was an error fetching data", error)))
+    const response = await fetch('https://backend-microservice-urlshortener.onrender.com/api/getALL')
+    const jsonData = await response.json()
+    const dataOutput = setAPI(jsonData)
+    setLoading(false)
+  } catch(err) {
+    alert("there was an error fetching data from the server")
+    console.error("there was an error fetching data", err)
+  }
 }
+
+// async function fetchData() {
+//     setLoading(true)
+//     return await fetch("https://backend-microservice-urlshortener.onrender.com/api/getALL")
+//     .then((response) => response.json())
+//     .then((data) => setAPI(data))
+//     .then((loading) => setLoading(false))
+//     .catch((error) => alert("there was an error fetching data from the server", console.error("there was an error fetching data", error)))
+// }
     
 
 useEffect(() => {
