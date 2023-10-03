@@ -15,10 +15,12 @@ async function fetchData() {
     const jsonData = await response.json()
     const dataOutput = setAPI(jsonData)
     setLoading(false)
+    return dataOutput
   } catch(err) {
     alert("there was an error fetching data from the server")
     console.error("there was an error fetching data", err)
   }
+ 
 }
 
 // async function fetchData() {
@@ -72,9 +74,15 @@ useEffect(() => {
         {loading && <p class="loading">Loading from database ...</p>}
       
             {api.map((apiData) => (
-              <li key={apiData._id} class="api-urls">{apiData.url} [short URL]: {apiData.short_url}</li>
+              <li key={apiData._id} class="api-urls">{apiData.url} [short URL]: {apiData.short_url}<br /><ul class="url-links">https://backend-microservice-urlshortener.onrender.com/api/shorturl/{apiData.short_url}</ul></li>
+               
             ))}
           </ul>
+                
+    
+             
+                
+              
         </div>
    
       </body>

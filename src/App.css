@@ -28,6 +28,7 @@ body{
 } */
 
 .api-ul {
+  list-style: none;
   border: 1px solid;
   border-color: rgb(12, 179, 123);
   padding: 7px;
@@ -48,7 +49,7 @@ body{
   border: solid 1px;
   border-color: green;
   border-radius: 3px;
-  padding: 7px;
+  padding: 10px;
   background-color: rgba(127, 255, 212, 0.223);
   color: rgb(0, 0, 165);
   overflow-wrap: break-word;
@@ -81,4 +82,14 @@ button:hover {
   width: 300px;
   margin: 0 auto;
   padding: 7px;
+}
+
+.url-links {
+  width: 50%;
+  min-width: 90%;
+  padding: 7px;
+  margin: 0 auto;
+  list-style: none;
+  background-color: rgb(255, 255, 255);
+  
 }
