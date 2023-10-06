@@ -1,11 +1,13 @@
 import './App.css';
 import { useEffect, useState } from 'react';
+import { CopyToClipboard } from './CopyToClipboard'
 
 
 function App() {
 const [api, setAPI] = useState([]);
 const [loading, setLoading] = useState(false);
 const [position, setPosition] = useState({ x: 0, y: 0 })
+
 
 
 async function fetchData() {
@@ -74,7 +76,8 @@ useEffect(() => {
         {loading && <p class="loading">Loading from database ...</p>}
       
             {api.map((apiData) => (
-              <li key={apiData._id} class="api-urls">{apiData.url} [short URL]: {apiData.short_url}<br /><ul class="url-links">https://backend-microservice-urlshortener.onrender.com/api/shorturl/{apiData.short_url}</ul></li>
+            
+              <li key={apiData._id} class="api-urls">{apiData.url} [short URL]: {apiData.short_url}<br /><ul class="url-links"> <CopyToClipboard copyText={apiData.url+ "/" + apiData.short_url}/> https://backend-microservice-urlshortener.onrender.com/api/shorturl/{apiData.short_url}</ul></li>
                
             ))}
           </ul>
