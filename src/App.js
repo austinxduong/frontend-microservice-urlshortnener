@@ -76,8 +76,9 @@ useEffect(() => {
         {loading && <p class="loading">Loading from database ...</p>}
       
             {api.map((apiData) => (
-            
-              <li key={apiData._id} class="api-urls">{apiData.url} [short URL]: {apiData.short_url}<br /><ul class="url-links"> <CopyToClipboard copyText={apiData.url+ "/" + apiData.short_url}/> https://backend-microservice-urlshortener.onrender.com/api/shorturl/{apiData.short_url}</ul></li>
+              
+          
+              <li key={apiData._id} class="api-urls">{apiData.url} [short URL]: {apiData.short_url}<br /><ul class="url-links"> <CopyToClipboard copyText={"https://backend-microservice-urlshortener.onrender.com" + "/" + "api" + "/" + "shorturl" + "/" + apiData.short_url}/> https://backend-microservice-urlshortener.onrender.com/api/shorturl/{apiData.short_url}</ul></li>
                
             ))}
           </ul>
